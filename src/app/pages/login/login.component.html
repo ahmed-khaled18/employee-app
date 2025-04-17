@@ -1,1 +1,49 @@
-<p>login works!</p>
+<main class="main-login">
+  <div class="left-login">
+    <h1>Login<br />And join our team</h1>
+    <img
+      src="https://i.postimg.cc/YC13sX2Z/Astronaut-cuate.png"
+      class="left-login-img"
+      alt="astronaut image"
+    />
+  </div>
+
+  <div class="right-login">
+    <div class="card-login">
+      <h1>Login</h1>
+      <form (ngSubmit)="onSubmit()">
+        <div class="textfield">
+          <label for="username">User</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="credentials.username"
+            placeholder="User"
+            required
+          />
+        </div>
+
+        <div class="textfield">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="credentials.password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="isLoading">
+          {{ isLoading ? "Logging in..." : "Login" }}
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
